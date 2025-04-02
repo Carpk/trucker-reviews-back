@@ -27,7 +27,9 @@ public class AppUser {
 
 
 
-
+  public void AppUser() {
+    
+  }
 
 
 }
