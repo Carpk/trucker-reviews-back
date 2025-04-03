@@ -22,7 +22,7 @@ public class Employee {
   @JoinColumn(name="department")
   private Department department;
 
-  public void Employee(String firstname, String lastname) {
+  public Employee(String firstname, String lastname) {
     this.firstname = firstname;
     this.lastname = lastname;
   }

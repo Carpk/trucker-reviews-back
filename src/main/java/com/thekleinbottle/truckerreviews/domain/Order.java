@@ -2,6 +2,7 @@ package com.thekleinbottle.truckerreviews.domain;
 
 import java.util.List;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
@@ -12,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
+@Entity
 public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +31,7 @@ public class Order {
   private Department department;
 
 
-  public void Order(String invoice) {
+  public Order(String invoice) {
     this.invoice = invoice;
   }
 

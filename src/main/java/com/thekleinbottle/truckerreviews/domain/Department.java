@@ -4,11 +4,13 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+@Entity
 public class Department {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,8 +27,12 @@ public class Department {
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
   private List<Employee> employees;
 
-  public void Department(String name) {
+  public Department(String name) {
     this.name = name;
+    this.orders = null;
+    this.employees = null;
   }
+
+  public Department() {}
 
 }

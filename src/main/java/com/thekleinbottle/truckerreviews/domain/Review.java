@@ -23,7 +23,7 @@ public class Review {
   @JoinColumn(name="appuser")
   private AppUser appuser;
 
-  public void Review(AppUser appuser, String title, String text) {
+  public Review(AppUser appuser, String title, String text) {
 
     this.appuser = appuser;
     this.title = title;
