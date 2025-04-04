@@ -14,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Order {
+public class PurchaseOrder {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(nullable=false, updatable=false)
@@ -23,7 +23,7 @@ public class Order {
   @Column(nullable=false, unique=true)
   private String invoice;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "purchaseOrder")
   private List<Item> items;
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -31,7 +31,7 @@ public class Order {
   private Department department;
 
 
-  public Order(String invoice) {
+  public PurchaseOrder(String invoice) {
     this.invoice = invoice;
   }
 

@@ -19,8 +19,8 @@ public class Item {
   private String name, quantity;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name="order")
-  private Order order;
+  @JoinColumn(name="purchaseOrder")
+  private PurchaseOrder purchaseOrder;
 
   public Item() {
     

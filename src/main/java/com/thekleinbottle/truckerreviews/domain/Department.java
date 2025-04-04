@@ -20,16 +20,15 @@ public class Department {
   @Column(nullable=false, unique=true)
   private String name;
 
-
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
-  private List<Order> orders;
+  private List<PurchaseOrder> purchaseOrders;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
   private List<Employee> employees;
 
   public Department(String name) {
     this.name = name;
-    this.orders = null;
+    this.purchaseOrders = null;
     this.employees = null;
   }
 
