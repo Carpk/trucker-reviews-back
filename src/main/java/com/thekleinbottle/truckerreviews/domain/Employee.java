@@ -22,8 +22,9 @@ public class Employee {
   @JoinColumn(name="department")
   private Department department;
 
-  public Employee(String firstname, String lastname) {
+  public Employee(String firstname, String lastname, Department department) {
     this.firstname = firstname;
     this.lastname = lastname;
+    this.department = department;
   }
 }

@@ -31,8 +31,9 @@ public class PurchaseOrder {
   private Department department;
 
 
-  public PurchaseOrder(String invoice) {
+  public PurchaseOrder(String invoice, Department department) {
     this.invoice = invoice;
+    this.department = department;
   }
 
 }

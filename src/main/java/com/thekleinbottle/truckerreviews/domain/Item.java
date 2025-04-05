@@ -16,13 +16,17 @@ public class Item {
   @Column(nullable=false, updatable=false)
   private Long id;
 
-  private String name, quantity;
+  private String name, unit;
+  private int quantity;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="purchaseOrder")
   private PurchaseOrder purchaseOrder;
 
-  public Item() {
-    
+  public Item(PurchaseOrder purchaseOrder, String name, int quantity, String unit) {
+    this.purchaseOrder = purchaseOrder;
+    this.name = name;
+    this.quantity = quantity;
+    this.unit = unit;
   }
 }
