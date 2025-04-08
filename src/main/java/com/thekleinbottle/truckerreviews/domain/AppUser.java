@@ -33,5 +33,6 @@ public class AppUser {
     this.lastname = lastname;
   }
 
+  public AppUser() {}
 
 }

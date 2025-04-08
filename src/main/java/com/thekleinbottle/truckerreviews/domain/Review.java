@@ -29,4 +29,6 @@ public class Review {
     this.title = title;
     this.text = text;
   }
+
+  public Review() {}
 }

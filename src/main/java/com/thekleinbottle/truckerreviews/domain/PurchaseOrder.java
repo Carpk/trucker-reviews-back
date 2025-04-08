@@ -36,4 +36,6 @@ public class PurchaseOrder {
     this.department = department;
   }
 
+  public PurchaseOrder() {}
+
 }

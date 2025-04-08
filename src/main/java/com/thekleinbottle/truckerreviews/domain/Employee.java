@@ -9,6 +9,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Employee {
   @Id
@@ -27,4 +30,6 @@ public class Employee {
     this.lastname = lastname;
     this.department = department;
   }
+
+  public Employee() {}
 }

@@ -29,4 +29,6 @@ public class Item {
     this.quantity = quantity;
     this.unit = unit;
   }
+
+  public Item() {}
 }
