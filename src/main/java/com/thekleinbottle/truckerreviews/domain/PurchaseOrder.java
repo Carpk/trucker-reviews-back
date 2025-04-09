@@ -24,7 +24,7 @@ public class PurchaseOrder {
   private String invoice;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "purchaseOrder")
-  private List<Item> items;
+  private List<PurchaseItem> items;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="department")

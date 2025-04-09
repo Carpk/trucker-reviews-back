@@ -10,7 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Item {
+public class PurchaseItem {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(nullable=false, updatable=false)
@@ -23,12 +23,12 @@ public class Item {
   @JoinColumn(name="purchaseOrder")
   private PurchaseOrder purchaseOrder;
 
-  public Item(PurchaseOrder purchaseOrder, String name, int quantity, String unit) {
+  public PurchaseItem(PurchaseOrder purchaseOrder, String name, int quantity, String unit) {
     this.purchaseOrder = purchaseOrder;
     this.name = name;
     this.quantity = quantity;
     this.unit = unit;
   }
 
-  public Item() {}
+  public PurchaseItem() {}
 }

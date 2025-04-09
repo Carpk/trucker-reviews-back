@@ -53,8 +53,8 @@ public class TruckerReviewsApplication implements CommandLineRunner {
 		PurchaseOrder po2 = new PurchaseOrder("8742", cs);
 		PurchaseOrder po3 = new PurchaseOrder("5928", fc);
 		purcRepo.saveAll(Arrays.asList(po0, po1, po2, po3));
-		itemRepo.save(new Item(po0, "Soap", 3,"50gal"));
-		itemRepo.save(new Item(po0, "hot wax", 8, "20gal"));
+		itemRepo.save(new PurchaseItem(po0, "Soap", 3,"50gal"));
+		itemRepo.save(new PurchaseItem(po0, "hot wax", 8, "20gal"));
 	}
 
 }
