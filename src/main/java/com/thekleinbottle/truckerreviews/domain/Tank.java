@@ -1,15 +1,13 @@
 package com.thekleinbottle.truckerreviews.domain;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.Data;
 
-@Data
 @Entity
-public class Product {
+public class Tank {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(nullable=false, updatable=false)
@@ -17,8 +15,9 @@ public class Product {
 
   String name;
 
-  public Product() {
-    
-  }
+  int capacity, current;
 
+  // cap 20000 gal
+
+  public Tank() {}
 }

@@ -12,11 +12,11 @@ import com.thekleinbottle.truckerreviews.domain.*;
 public class TruckerReviewsApplication implements CommandLineRunner {
 	private final DepartmentRepository deptRepo;
 	private final EmployeeRepository emplRepo;
-	private final ItemRepository itemRepo;
+	private final PurchaseItemRepository itemRepo;
 	private final PurchaseOrderRepository purcRepo;
 
 	public TruckerReviewsApplication(DepartmentRepository deptRepo, EmployeeRepository emplRepo, 
-			ItemRepository itemRepo, PurchaseOrderRepository purcRepo) {
+			PurchaseItemRepository itemRepo, PurchaseOrderRepository purcRepo) {
 		this.deptRepo = deptRepo;
 		this.emplRepo = emplRepo;
 		this.itemRepo = itemRepo;
