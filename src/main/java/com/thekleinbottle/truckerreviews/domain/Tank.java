@@ -15,9 +15,23 @@ public class Tank {
 
   String name;
 
-  int capacity, current;
+  int capacity, current, temp, preasure;
 
   // cap 20000 gal
 
+  public Tank(String name, int current, int capacity) {
+    this.name = name;
+    this.current = current;
+    this.capacity = capacity;
+  }
+
   public Tank() {}
+
+  public void sell(int amount) {
+    current = current - amount;
+  }
+
+  public void refill(int amount) {
+    current = current + amount;
+  }
 }

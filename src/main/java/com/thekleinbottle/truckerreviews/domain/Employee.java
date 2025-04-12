@@ -1,5 +1,6 @@
 package com.thekleinbottle.truckerreviews.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -24,6 +25,10 @@ public class Employee {
 
   private String firstname, lastname;
 
+  private int payRate;
+
+  private Date hireDate;
+
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
   private List<EmployeeTraining> trainings;
 
@@ -31,9 +36,12 @@ public class Employee {
   @JoinColumn(name="department")
   private Department department;
 
-  public Employee(String firstname, String lastname, Department department) {
+  public Employee(String firstname, String lastname, int payRate, 
+      Date hireDate, Department department) {
     this.firstname = firstname;
     this.lastname = lastname;
+    this.payRate = payRate;
+    this.hireDate = hireDate;
     this.department = department;
   }
 
