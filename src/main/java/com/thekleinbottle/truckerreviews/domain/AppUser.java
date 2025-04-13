@@ -10,6 +10,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.OneToMany;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class AppUser {
   @Id
@@ -18,13 +21,15 @@ public class AppUser {
   private Long id;
 
   @Column(nullable=false, unique=true)
-  private String email;
+  private String username;
 
-  private String firstname, lastname;
+  @Column(nullable=false)
+  private String password, role;
+
+  private String email, firstname, lastname;
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "appuser")
   private List<Review> reviews;
-
 
 
   public AppUser(String email, String firstname, String lastname) {

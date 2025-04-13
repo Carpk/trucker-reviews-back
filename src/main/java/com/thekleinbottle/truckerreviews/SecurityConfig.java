@@ -1,33 +1,49 @@
-// package com.thekleinbottle.truckerreviews;
+package com.thekleinbottle.truckerreviews;
 
-// import java.util.List;
+import java.util.List;
 
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.http.HttpMethod;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.CorsUtils;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-// import org.springframework.web.cors.CorsConfiguration;
-// import org.springframework.web.cors.CorsConfigurationSource;
-// import org.springframework.web.cors.CorsUtils;
-// import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+@Configuration
+public class SecurityConfig {
+  @Bean
+  public InMemoryUserDetailsManager userDetailsService() {
+    UserDetails user = User.builder().username("user").password(passwordEncoder()
+      .encode("password")).roles("USER").build();
 
-// @Configuration
-// public class SecurityConfig {
+    return new InMemoryUserDetailsManager(user);
+  }
 
-//   @Bean
-//   CorsConfigurationSource corsConfigurationSource() {
-//       CorsConfiguration configuration = new CorsConfiguration();
-//       UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-//       configuration.setAllowedOrigins(List.of("*"));
-//       configuration.setAllowedMethods(List.of("*"));
-//       configuration.setAllowedHeaders(List.of("*"));
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+      CorsConfiguration configuration = new CorsConfiguration();
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
-//       configuration.setAllowCredentials(false);
-//       // configuration.setExposedHeaders(Arrays.asList("*"));
-//       configuration.applyPermitDefaultValues();
+      configuration.setAllowedOrigins(List.of("*"));
+      configuration.setAllowedMethods(List.of("*"));
+      configuration.setAllowedHeaders(List.of("*"));
 
-//       source.registerCorsConfiguration("/**", configuration);
-//       return source;
-//   }
-// }
+      configuration.setAllowCredentials(false);
+      // configuration.setExposedHeaders(Arrays.asList("*"));
+      configuration.applyPermitDefaultValues();
+
+      source.registerCorsConfiguration("/**", configuration);
+      return source;
+  }
+}
