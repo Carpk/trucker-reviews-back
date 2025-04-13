@@ -32,10 +32,10 @@ public class AppUser {
   private List<Review> reviews;
 
 
-  public AppUser(String email, String firstname, String lastname) {
-    this.email = email;
-    this.firstname = firstname;
-    this.lastname = lastname;
+  public AppUser(String username, String password, String role) {
+    this.username = username;
+    this.password = password;
+    this.role = role;
   }
 
   public AppUser() {}
