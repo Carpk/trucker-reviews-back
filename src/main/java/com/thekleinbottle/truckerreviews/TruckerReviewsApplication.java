@@ -16,14 +16,16 @@ public class TruckerReviewsApplication implements CommandLineRunner {
 	private final PurchaseItemRepository itemRepo;
 	private final PurchaseOrderRepository purcRepo;
 	private final TankRepository tankRepo;
+	private final AppUserRepository userRepo;
 
-	public TruckerReviewsApplication(DepartmentRepository deptRepo, EmployeeRepository emplRepo, 
-			PurchaseItemRepository itemRepo, PurchaseOrderRepository purcRepo, TankRepository tankRepo) {
+	public TruckerReviewsApplication(DepartmentRepository deptRepo, EmployeeRepository emplRepo, PurchaseItemRepository itemRepo, 
+			PurchaseOrderRepository purcRepo, TankRepository tankRepo, AppUserRepository userRepo) {
 		this.deptRepo = deptRepo;
 		this.emplRepo = emplRepo;
 		this.itemRepo = itemRepo;
 		this.purcRepo = purcRepo;
 		this.tankRepo = tankRepo;
+		this.userRepo = userRepo;
 	}
 
 	public static void main(String[] args) {
@@ -64,6 +66,8 @@ public class TruckerReviewsApplication implements CommandLineRunner {
 		tankRepo.save(new Tank("BG864", 26312, 28000));
 		tankRepo.save(new Tank("LR51", 8714, 24000));
 		tankRepo.save(new Tank("GFG62", 1262, 22000));
+
+		userRepo.save(new AppUser("admin","$2a$10$8cjz47bjbR4Mn8GMg9IZx.vyjhLXR/SKKMSZ9.mP9vpMu0ssKi8GW", "ADMIN"));
 	}
 
 }
